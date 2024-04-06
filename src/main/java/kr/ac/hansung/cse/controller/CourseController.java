@@ -1,6 +1,7 @@
 package kr.ac.hansung.cse.controller;
 
 import kr.ac.hansung.cse.model.Course;
+import kr.ac.hansung.cse.model.SemesterGrade;
 import kr.ac.hansung.cse.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -20,7 +22,7 @@ public class CourseController {
 
     @GetMapping("/courses")
     public String showCourses(Model model) {
-        List<Course> Courses = courseService.getAllCourses();
+        List<Course> Courses = courseService.getDetailsCourse(2024, 1);
         model.addAttribute("id_courses", Courses);
         return "courses";
     }
@@ -43,5 +45,21 @@ public class CourseController {
         }
         courseService.insert(course);
         return "coursecreated";
+    }
+
+    @GetMapping("/semestergrades")
+    public String showSemesterGrade(Model model) {
+        List<SemesterGrade> semesterGrades = courseService.getSemesterGrades();
+        model.addAttribute("id_semesterGrades", semesterGrades);
+        return "semestergrades";
+    }
+
+    @GetMapping("/semestergrades/Details")
+    public String showSemesterGradeDetails(@RequestParam("year") int year, @RequestParam("semester") int semester, Model model) {
+        List<Course> semesterGradesDetails = courseService.getDetailsCourse(year, semester);
+
+        model.addAttribute("id_semesterGradesDetails", semesterGradesDetails);
+
+        return "semesterGradeDetails";
     }
 }

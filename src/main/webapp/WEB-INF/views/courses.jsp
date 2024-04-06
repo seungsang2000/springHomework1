@@ -1,19 +1,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: nykim
-  Date: 2024-03-07
-  Time: 오후 4:45
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/course.css" >
 </head>
 <body>
-    <c:forEach var="course" items="${id_courses}" >
-        <p> <c:out value="${course}"> </c:out> </p>
+<table>
+    <tr>
+        <th>교과코드</th>
+        <th>교과목명</th>
+        <th>교과구분</th>
+        <th>담당교수</th>
+        <th>학기</th>
+        <th>수강년도</th>
+        <th>학점</th>
+    </tr>
+    <c:forEach var="course" items="${id_courses}">
+        <tr>
+            <td><c:out value="${course.code}"/></td>
+            <td><c:out value="${course.subjectName}"/></td>
+            <td><c:out value="${course.subjectClassification}"/></td>
+            <td><c:out value="${course.professor}"/></td>
+            <td><c:out value="${course.semester}"/></td>
+            <td><c:out value="${course.year}"/></td>
+            <td><c:out value="${course.grade}"/></td>
+        </tr>
     </c:forEach>
+</table>
 </body>
 </html>

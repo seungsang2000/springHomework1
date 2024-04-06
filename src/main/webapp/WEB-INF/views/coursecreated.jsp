@@ -13,7 +13,7 @@
 <body>
 
 ${course.subjectName}가 수강신청되었습니다.
-<a href="${pageContext.request.contextPath}/courses"> Click here to view current courses  </a>
+<a href="${pageContext.request.contextPath}/"> 홈 화면으로 이동  </a>
 
 </body>
 </html>

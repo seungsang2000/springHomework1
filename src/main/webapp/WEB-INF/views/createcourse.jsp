@@ -42,18 +42,8 @@
                 <sf:errors path="professor" class="error" />
             </td>
         </tr>
-        <tr>
-            <td class="label"> 학기:</td>
-            <td><sf:input class="control" type="text" path="semester"/> <br/>
-                <sf:errors path="semester" class="error" />
-            </td>
-        </tr>
-        <tr>
-            <td class="label"> 수강년도 :</td>
-            <td><sf:input class="control" type="text" path="year"/> <br/>
-                <sf:errors path="year" class="error" />
-            </td>
-        </tr>
+        <sf:hidden path="semester" value="1"/>
+        <sf:hidden path="year" value="2024"/>
         <tr>
             <td class="label"> 학점:</td>
             <td><sf:input class="control" type="text" path="grade"/> <br/>

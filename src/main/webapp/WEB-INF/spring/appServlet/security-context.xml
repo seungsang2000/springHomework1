@@ -21,10 +21,11 @@
     <security:http auto-config="true" use-expressions="true">
         <security:intercept-url pattern="/" access="permitAll()"/>
         <security:intercept-url pattern="/login" access="permitAll()"/>
-        <security:intercept-url pattern="/courses" access="permitAll()"/>
+        <security:intercept-url pattern="/courses" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/createcourse" access="hasRole('ROLE_USER')"/>
-        <security:intercept-url pattern="/offers" access="permitAll()"/>
-        <security:intercept-url pattern="/createoffer" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/semestergrades" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/semestergrades/Details" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/semesterGradeDetails" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/docreate" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/resources/**" access="permitAll()"/>
         <security:intercept-url pattern="/**" access="denyAll()"/>
