@@ -13,11 +13,17 @@
     <title>$Title$</title>
   </head>
   <body>
-    <p> <a href="${pageContext.request.contextPath}/offers"> Show current offers</a></p>
-    <p> <a href="${pageContext.request.contextPath}/createoffer"> Add a new offer</a></p>
+    <p> <a href="${pageContext.request.contextPath}/courses"> Show current courses</a></p>
+    <p> <a href="${pageContext.request.contextPath}/createcourse"> Add a new courses</a></p>
 
     <c:if test="${pageContext.request.userPrincipal.name != null}">
       <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+    </c:if>
+
+    <c:if test="${pageContext.request.userPrincipal.name == null}">
+      <form action="${pageContext.request.contextPath}/login" method="get">
+        <input type="submit" value="Login"/>
+      </form>
     </c:if>
 
     <form id="logout"  action="<c:url value="/logout" />"method="post">
