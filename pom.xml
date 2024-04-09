@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kr.ac.hansung.cse</groupId>
-    <artifactId>helloSpringMVC</artifactId>
+    <artifactId>homework1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -124,5 +124,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

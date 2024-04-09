@@ -6,9 +6,15 @@
     <title>$Title$</title>
   </head>
   <body>
-    <p> <a href="${pageContext.request.contextPath}/courses"> 수강 신청 조회</a></p>
-    <p> <a href="${pageContext.request.contextPath}/createcourse"> 수강신청하기</a></p>
-    <p> <a href="${pageContext.request.contextPath}/semestergrades"> 학년별 이수 학점 조회</a></p>
+  <p>
+    <button onclick="window.location.href='${pageContext.request.contextPath}/courses'">수강 신청 조회</button>
+  </p>
+  <p>
+    <button onclick="window.location.href='${pageContext.request.contextPath}/createcourse'">수강신청하기</button>
+  </p>
+  <p>
+    <button onclick="window.location.href='${pageContext.request.contextPath}/semestergrades'">학년별 이수 학점 조회</button>
+  </p>
 
 
     <c:if test="${pageContext.request.userPrincipal.name != null}">

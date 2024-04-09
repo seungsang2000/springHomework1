@@ -81,19 +81,16 @@ public class CourseDao {
 
     public List<Course> getDetailsCourse(int year, int semester) {
         String sqlStatement = "select * from courses where year = ? and semester = ?";
-        return jdbcTemplate.query(sqlStatement, new Object[]{year, semester}, new RowMapper<Course>() {
-            @Override
-            public Course mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Course course = new Course();
-                course.setYear(rs.getInt("year"));
-                course.setSemester(rs.getInt("semester"));
-                course.setCode(rs.getString("code"));
-                course.setSubjectName(rs.getString("subjectName"));
-                course.setSubjectClassification(rs.getString("subjectClassification"));
-                course.setProfessor(rs.getString("professor"));
-                course.setGrade(rs.getInt("grade"));
-                return course;
-            }
+        return jdbcTemplate.query(sqlStatement, new Object[]{year, semester}, (rs, rowNum) -> {
+            Course course = new Course();
+            course.setYear(rs.getInt("year"));
+            course.setSemester(rs.getInt("semester"));
+            course.setCode(rs.getString("code"));
+            course.setSubjectName(rs.getString("subjectName"));
+            course.setSubjectClassification(rs.getString("subjectClassification"));
+            course.setProfessor(rs.getString("professor"));
+            course.setGrade(rs.getInt("grade"));
+            return course;
         });
     }
 }

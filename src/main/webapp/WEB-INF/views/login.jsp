@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: nykim
-  Date: 2024-03-20
-  Time: 오후 4:48
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -22,7 +15,7 @@
 <body>
 <div class="container">
     <form class="form-signin" method="post" action="<c:url value="/login" />">
-        <h2 class="form-signin-heading">Please sign in(ㄴㅁㅇㅁㅇㅁㄴㅇㅁㄴㅇ)</h2>
+        <h2 class="form-signin-heading">로그인 페이지</h2>
 
         <c:if test="${not empty errorMsg}">
             <div style="color: #ff0000;"> <h3> ${errorMsg} </h3></div>
@@ -33,15 +26,15 @@
         </c:if>
 
         <p>
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+            <label for="username" class="sr-only">유저이름</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="유저이름" required autofocus>
         </p>
         <p>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            <label for="password" class="sr-only">비밀번호</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="비밀번호" required>
         </p>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"  />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
     </form>
 </div>
 </body>
